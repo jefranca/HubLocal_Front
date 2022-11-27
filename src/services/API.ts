@@ -5,11 +5,9 @@ const { REACT_APP_BASE_URL } = process.env
 
 const BASE_URL = REACT_APP_BASE_URL ? REACT_APP_BASE_URL : 'http://localhost:4001/'
 
-const token=getFromLocalStorage()
-
-function config() {
+function config(login) {
     return {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${login}` },
     };
 }
 
@@ -19,17 +17,21 @@ function postSignUp(body) {
 function postSignIn(body) {
     return axios.post(`${BASE_URL}auth/sign-in`, body)
 }
-function postCompany(body) {
-    return axios.post(`${BASE_URL}company`, body, config())
+function postCompany(body,login) {
+    return axios.post(`${BASE_URL}company`, body, config(login))
 }
-function getMyCompanies() {
-    return axios.get(`${BASE_URL}company`, config())
+function getMyCompanies(login) {
+    return axios.get(`${BASE_URL}company`, config(login))
 }
-function getOneCompany(body) {
-    return axios.post(`${BASE_URL}company/local-responsible`, body, config())
+function getOneCompany(body,login) {
+    return axios.post(`${BASE_URL}company/local-responsible`, body, config(login))
+}
+function deleteToken(login) {
+    return axios.delete(`${BASE_URL}auth/logout`, config(login))
 }
 
 export {
+    deleteToken,
     postSignUp,
     postSignIn,
     postCompany,

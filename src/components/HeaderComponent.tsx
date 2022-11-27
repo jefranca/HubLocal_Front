@@ -1,10 +1,27 @@
+import { useContext } from 'react';
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
+import UserContext from '../context/UserContext';
+import { deleteToken } from '../services/API';
 
 export default function HeaderComponent() {
+  const navigate = useNavigate();
+  const { login } = useContext(UserContext);
+
+  function logout(){
+    deleteToken(login)
+    .then((res)=> {
+    localStorage.clear()
+    navigate('/')
+  }
+    )
+    .catch(err=> console.error(err))
+  }
+
   return (
       <Header>
         <StyledSpan>HubLocal</StyledSpan>
-        <StyledLogout>Logout</StyledLogout>
+        <StyledLogout onClick={logout}>Logout</StyledLogout>
       </Header>
   )
 }

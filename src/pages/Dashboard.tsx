@@ -16,10 +16,13 @@ export default function CompanyPage() {
   }, [login, navigate]);
 
   useEffect(() => {
-    getMyCompanies()
+    getMyCompanies(login)
       .then((res) => setCompanies(res.data))
       .catch((err) => console.error(err))
   }, [])
+
+  console.log(companies)
+
 
   return (
     <>

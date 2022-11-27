@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react'
-import { AiOutlinePlusCircle } from 'react-icons/ai';
 import UserContext from '../context/UserContext';
 import HeaderComponent from '../components/HeaderComponent';
 import { getOneCompany } from '../services/API';
@@ -21,7 +20,7 @@ export default function Dashboard() {
   }, [login, navigate]);
 
   useEffect(() => {
-    getOneCompany(body)
+    getOneCompany(body,login)
       .then((res) => setCompany(res.data))
       .catch((err) => console.error(err))
   }, [body])
@@ -104,9 +103,6 @@ export default function Dashboard() {
         </>
         :
         <></>
-
-
-
       }
 
     </>

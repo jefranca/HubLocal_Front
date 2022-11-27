@@ -10,9 +10,6 @@ export default function Home() {
   const navigate = useNavigate();
   const { login } = useContext(UserContext);
 
-  useEffect(() => {
-    if (login) navigate('/dashboard');
-  }, [login, navigate]);
 
   return (
     <>

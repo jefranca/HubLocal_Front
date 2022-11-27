@@ -39,7 +39,7 @@ export default function AddCompanyForm() {
         cep:responsibleCep
       }
     };
-    postCompany(body)
+    postCompany(body,login)
     .then((res)=>navigate('/dashboard'))
     .catch((err)=>console.error(err))
   }
