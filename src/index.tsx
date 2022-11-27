@@ -10,13 +10,13 @@ import Dashboard from "./pages/Dashboard";
 
 render(
   <BrowserRouter>
-  <ResetCss />
+    <ResetCss />
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
-        <Route path="sign-up" element={<SignUp/>}/>
-        <Route path="sign-in" element={<SignIn/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="sign-up" element={<SignUp />} />
+        <Route path="sign-in" element={<SignIn />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   </BrowserRouter>,

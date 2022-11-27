@@ -10,10 +10,10 @@ function config(token) {
     };
 }
 
-function postSignUp(body){
+function postSignUp(body) {
     return axios.post(`${BASE_URL}auth/sign-up`, body)
 }
-function postSignIn(body){
+function postSignIn(body) {
     return axios.post(`${BASE_URL}auth/sign-in`, body)
 }
 
