@@ -3,7 +3,7 @@ import { getFromLocalStorage } from '../utils/localStorage';
 
 const { REACT_APP_BASE_URL } = process.env
 
-const BASE_URL = REACT_APP_BASE_URL ? REACT_APP_BASE_URL : 'http://localhost:4001/'
+const BASE_URL = REACT_APP_BASE_URL ? REACT_APP_BASE_URL : 'http://localhost:4000/'
 
 function config(login) {
     return {
